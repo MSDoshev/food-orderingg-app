@@ -1,4 +1,5 @@
 import logo from "../../assets/logo.jpg";
+import Button from "../UI/Button";
 
 export default function Header() {
   return (
@@ -7,7 +8,7 @@ export default function Header() {
         <img src={logo} alt="Restaurant logo" className="w-16 h-16 object-contain rounded-full border-2 border-amber-500"/>
         <h1 className="uppercase font-bold text-4xl text-amber-600">Foodapp</h1>
       </div>
-      <button className="text-amber-600 hover:text-stone-100">Cart ()</button>
+      <Button textOnly>Cart (0)</Button>
     </header>
   );
 }

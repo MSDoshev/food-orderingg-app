@@ -1,4 +1,5 @@
 import { currencyFormatter } from "../../util/formatting";
+import Button from "../UI/Button";
 
 export default function MealItem({ meal }) {
     
@@ -22,7 +23,8 @@ export default function MealItem({ meal }) {
           <p className="m-4">{meal.description}</p>
         </div>
         <p className="mb-6">
-            <button>Add to Cart</button>
+            <Button>Add to Cart</Button>
+            {/* <button className="bg-amber-600 px-4 py-2 rounded-lg hover:bg-slate-900 hover:text-amber-600">Add to Cart</button> */}
         </p>
       </article>
     </li>
