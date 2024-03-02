@@ -1,4 +1,7 @@
+import { currencyFormatter } from "../../util/formatting";
+
 export default function MealItem({ meal }) {
+    
   return (
     <li
       key={meal.id}
@@ -14,7 +17,7 @@ export default function MealItem({ meal }) {
           <h3 className="text-2xl font-bold my-3 mx-0">{meal.name}</h3>
           
           <p className="inline-block bg-slate-900 text-amber-600 text-sm font-bold py-2 px-8 m-0 rounded-md">
-            {meal.price}
+            {currencyFormatter.format(meal.price)}
           </p>
           <p className="m-4">{meal.description}</p>
         </div>
