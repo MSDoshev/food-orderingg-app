@@ -1,8 +1,16 @@
+import { useContext } from "react";
+
 import { currencyFormatter } from "../../util/formatting";
 import Button from "../UI/Button";
+import CartContext from "../../store/CartContext";
 
 export default function MealItem({ meal }) {
-    
+  const cartCtx = useContext(CartContext);
+  
+  function handleAddMealToCart() {
+    cartCtx.addItem(meal);
+  }
+
   return (
     <li
       key={meal.id}
@@ -16,15 +24,15 @@ export default function MealItem({ meal }) {
         />
         <div>
           <h3 className="text-2xl font-bold my-3 mx-0">{meal.name}</h3>
-          
+
           <p className="inline-block bg-slate-900 text-amber-600 text-sm font-bold py-2 px-8 m-0 rounded-md">
             {currencyFormatter.format(meal.price)}
           </p>
           <p className="m-4">{meal.description}</p>
         </div>
         <p className="mb-6">
-            <Button>Add to Cart</Button>
-            {/* <button className="bg-amber-600 px-4 py-2 rounded-lg hover:bg-slate-900 hover:text-amber-600">Add to Cart</button> */}
+          <Button onClick={handleAddMealToCart}>Add to Cart</Button>
+          {/* <button className="bg-amber-600 px-4 py-2 rounded-lg hover:bg-slate-900 hover:text-amber-600">Add to Cart</button> */}
         </p>
       </article>
     </li>
