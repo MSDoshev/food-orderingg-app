@@ -1,4 +1,5 @@
 import useHttp from "../../hooks/useHttp";
+import Error from "../UI/Error";
 import MealItem from "./MealItem";
 
 const requsetConfig = {}; // created here to avoid infinite loop
@@ -12,7 +13,12 @@ export default function Meals() {
 
   console.log(loadedMeals);
   if (isLoading) {
-    return <p>Fetching meals...</p>;
+    return <p className="text-center">Fetching meals...</p>;
+  }
+
+
+  if (error) {
+    return <Error title="Failed to fetch meals!" message={error}/>
   }
 
   // if(!data){
